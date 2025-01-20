@@ -20,8 +20,14 @@
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="#about">About Us</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="dropdown">
+                <a href="#products" class="dropdown-toggle">Products</a>
+                <ul class="dropdown-menu">
+                    <li><a href="beef.html">Beef</a></li>
+                    <li><a href="chicken.html">Chicken</a></li>
+                    <li><a href="pork.html">Pork</a></li>
+                </ul>
+            </li>
         </ul>
         <div class="menu-icon" onclick="toggleMenu()">
             <span></span>
@@ -32,7 +38,7 @@
 
     <section id="contact-page">
         <div class="contact-overlay">
-            <form id="contact-form">
+            <form id="contact-form" action="send_email.php" method="POST">
                 <h2>Contact Us</h2>
                 <div class="form-group">
                     <label for="name">Name</label>
