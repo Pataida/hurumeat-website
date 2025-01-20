@@ -70,6 +70,47 @@ body {
     font-weight: bold;
 }
 
+.nav-links .dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    list-style: none;
+    padding: 0.5rem 0;
+    border: 1px solid #800000;
+    border-radius: 5px;
+    z-index: 1000;
+    width: max-content;
+}
+
+.dropdown-menu li {
+    padding: 0.5rem 1rem;
+    white-space: nowrap;
+}
+
+.dropdown-menu li a {
+    color: #800000;
+    text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f4f4f4;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+/* Show Dropdown on Hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
 .menu-icon {
     display: none;
     cursor: pointer;
@@ -812,69 +853,7 @@ body {
 
 
 
-/* Footer */
-.footer{
-    min-height: 30vh;
-    display: grid;
-  place-items: center;
-  background: #b10d0d;
-}
-.socials-container{
-    display: flex;
-    gap: 20px;
-  }
-  .socials-container a{
-    background-color: white;
-    padding: 1em;
-    border-radius: 50%;
-    height: 64px;
-    width: 64px;
-    box-sizing: border-box;
-    flex-shrink: 0;
-    display: grid;
-    place-items: center;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-  }
-  .socials-container a svg{
-    height: 32px;
-  }
-  .socials-container a::before{
-    content: attr(data-social);
-    position: absolute;
-    background-color: var(--accent-color);
-    color: white;
-    text-decoration: none;
-    padding: 0.5em 1em;
-    border-radius: 100px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-    transform: translateY(-30px) rotate(25deg);
-    opacity: 0;
-    transition: 200ms cubic-bezier(.42,0,.44,1.68);
-  }
-  .socials-container a:hover{
-    background-color: var(--accent-color);
-    fill: white;
-  }
-  .socials-container a::after{
-    content: '';
-    position: absolute;
-    height: 0;
-    width: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 10px solid var(--accent-color);
-    transform: translateY(0) rotate(25deg);
-    opacity: 0;
-    transition: 200ms cubic-bezier(.42,0,.44,1.68);
-  }
-  .socials-container a:hover::before{
-    transform: translateY(-65px) rotate(0);
-    opacity: 1;
-  }
-  .socials-container a:hover::after{
-    transform: translateY(-42px) rotate(0);
-    opacity: 1;
-  }
+
 
 
 
@@ -1225,6 +1204,88 @@ header h1 {
 }
 
 
+/* Footer */
+.footer{
+    min-height: 30vh;
+    display: grid;
+    place-items: center;
+    background: #b10d0d;
+}
+.socials-container{
+    display: flex;
+    gap: 20px;
+  }
+  .socials-container a{
+    background-color: white;
+    padding: 1em;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  }
+  .socials-container a svg{
+    height: 24px;
+    margin-top: -8px;
+  }
+  .socials-container a::before{
+    content: attr(data-social);
+    position: absolute;
+    background-color: var(--accent-color);
+    color: white;
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 100px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+    transform: translateY(-30px) rotate(25deg);
+    opacity: 0;
+    transition: 200ms cubic-bezier(.42,0,.44,1.68);
+  }
+  .socials-container a:hover{
+    background-color: var(--accent-color);
+    fill: white;
+  }
+  .socials-container a::after{
+    content: '';
+    position: absolute;
+    height: 0;
+    width: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid var(--accent-color);
+    transform: translateY(0) rotate(25deg);
+    opacity: 0;
+    transition: 200ms cubic-bezier(.42,0,.44,1.68);
+  }
+  .socials-container a:hover::before{
+    transform: translateY(-65px) rotate(0);
+    opacity: 1;
+  }
+  .socials-container a:hover::after{
+    transform: translateY(-42px) rotate(0);
+    opacity: 1;
+  }
+
+  .footer-bottom {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.footer-bottom a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid white;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #ffe1e1;
+}
+
 
 /* Responsive */
 @media (max-width: 600px) {
@@ -1260,7 +1321,17 @@ header h1 {
 
     .nav-links li {
         margin: 0 10px; /* Adjust margins for spacing */
-    }    
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .dropdown-menu {
+        position: relative;
+        border: none;
+    }
 }
 
 /* Animations */
